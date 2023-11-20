@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/action_quanly"
+            android:id="@+id/action_quanlyhoadon"
             android:enabled="true"
             android:icon="@drawable/ic_hd"
             android:title="Quản lý hóa đơn" />
@@ -26,7 +26,7 @@
             <menu>
                 <group android:checkableBehavior="single">
                     <item
-                        android:id="@+id/action_tMuon"
+                        android:id="@+id/action_tMuoi"
                         android:enabled="true"
                         android:icon="@drawable/ic_top"
                         android:title="Top 10" />

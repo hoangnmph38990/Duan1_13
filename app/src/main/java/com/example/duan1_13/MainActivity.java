@@ -2,12 +2,15 @@ package com.example.duan1_13;
 
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -82,7 +85,65 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected( MenuItem item) {
-//                selectDrawerItem(item);
+                if (item.getItemId() == R.id.action_quanlyhoadon){
+                    HoaDon_Fragment fragment = new HoaDon_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Quản lý hóa đơn");
+                } else if(item.getItemId() == R.id.action_qlhang){
+                    Hang_Fragment fragment = new Hang_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Quản lý hãng nước hoa");
+                } else if(item.getItemId() == R.id.action_qlnh) {
+                    NuocHoa_Fragment fragment = new NuocHoa_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Quản lý nước hoa");
+                } else if(item.getItemId() == R.id.action_qlNhanVien){
+                    NhanVien_Fragment fragment = new NhanVien_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Quản lý nhân viên");
+                } else if(item.getItemId() == R.id.action_tMuoi){
+                    Top_Fragment fragment = new Top_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("TOP 10");
+                } else if(item.getItemId() == R.id.action_doanhThu){
+                    DoanhThu_Fragment fragment = new DoanhThu_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Doanh thu");
+                } else if(item.getItemId() == R.id.action_doiPass){
+                    DoimatKhau_Fragment fragment = new DoimatKhau_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Đổi mật khẩu");
+                } else if(item.getItemId() == R.id.action_logout){
+                    //
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Thông báo : ");
+                    builder.setIcon(android.R.drawable.ic_delete);
+                    builder.setMessage("Bạn có muốn đăng xuất không ?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this, "Bạn đã đăng xuất...", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this,Login_Activity.class));
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // không làm gì, tất dialog đi
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.setCancelable(false);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                    //
+                } else {
+                    HoaDon_Fragment fragment = new HoaDon_Fragment();
+                    replaceFrg(fragment);
+                    setTitle("Quản lý hóa đơn");
+                }
+                drawerLayout.close();
+                //
                 return true;
             }
         });
@@ -93,19 +154,12 @@ public class MainActivity extends AppCompatActivity {
             navigationView.getMenu().getItem(0).setChecked(true);
             v = navigationView.getHeaderView(0);
 
-
-
-
             nvD = new NhanVien_DAO(this);
             nv = nvD.getID(user);
             String Name = nv.getHoTen();
 
-
             tv_nameUser = v.findViewById(R.id.header_nameUser);
             avatar = v.findViewById(R.id.img_avatar);
-
-
-
             // set hình ảnh và tên ở navigation header
             tv_nameUser.setText(Name);
 
@@ -166,8 +220,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
     //
+
+    public void replaceFrg(Fragment frg) {
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.drawer_Framelayout, frg).commit();
+    }
 
     // dùng để lưu ảnh
     private void SaveImg(String id){
@@ -176,7 +234,6 @@ public class MainActivity extends AppCompatActivity {
         ByteArrayOutputStream byOut = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byOut);
         byte[] image = byOut.toByteArray();
-
 
         nv.setHinhAnh(image);
         nvD.update(nv);
@@ -196,62 +253,6 @@ public class MainActivity extends AppCompatActivity {
         chosser.putExtra(Intent.EXTRA_INITIAL_INTENTS,new Intent[]{pho});
         startActivityForResult(chosser, 999);
     }
-
-//    private void selectDrawerItem(MenuItem item){
-//        Fragment fragment = null;
-//        Class fragmentClass;
-//        switch (item.getItemId()){
-//            case R.id.action_quanly:
-//                setTitle("Quản lý hóa đơn");
-//                fragmentClass = HoaDon_Fragment.class;
-//                break;
-//            case R.id.action_qlhang:
-//                setTitle("Quản lý hãng nước hoa");
-//                fragmentClass = Hang_Fragment.class;
-//                break;
-//            case R.id.action_qlnh:
-//                setTitle("Quản lý nước hoa");
-//                fragmentClass = NuocHoa_Fragment.class;
-//                break;
-//            case R.id.action_qlNhanVien:
-//                setTitle("Quản lý nhân viên");
-//                fragmentClass = NhanVien_Fragment.class;
-//                break;
-//            case R.id.action_tMuon:
-//                setTitle("Top 10");
-//                fragmentClass = Top_Fragment.class;
-//                break;
-//            case R.id.action_doanhThu:
-//                setTitle("Doanh thu");
-//                fragmentClass = DoanhThu_Fragment.class;
-//                break;
-//            case R.id.action_doiPass:
-//                setTitle("Đổi mật khẩu");
-//                fragmentClass = DoimatKhau_Fragment.class;
-//                break;
-//            case R.id.action_logout:
-//                Intent i = new Intent(MainActivity.this, Login_Activity.class);
-//                startActivity(i);
-//                finish();
-//                return;
-//            default:
-//                fragmentClass = HoaDon_Fragment.class;
-//                break;
-//        }
-//        try {
-//            fragment = (Fragment) fragmentClass.newInstance();
-//        }catch (Exception e){
-//            Toast.makeText(this, "Lỗi: "+ e , Toast.LENGTH_SHORT).show();
-//        }
-//        getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.drawer_Framelayout, fragment)
-//                .commit();
-//
-//        item.setChecked(true);
-//        setTitle(item.getTitle());
-//        drawerLayout.closeDrawers();
-//    }
-    //
 
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
