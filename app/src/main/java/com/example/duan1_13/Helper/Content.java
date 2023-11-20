@@ -3,7 +3,7 @@ package com.example.duan1_13.Helper;
 public class Content {
 
     public static final String DB_NAME = "UNG DUNG NUOC HOA";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
 
     public static final String TABLE_NV = "User";

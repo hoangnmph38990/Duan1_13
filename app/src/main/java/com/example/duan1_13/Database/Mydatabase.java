@@ -27,7 +27,7 @@ public class Mydatabase extends SQLiteOpenHelper {
 
         db.execSQL(sql);
 
-        sql = " insert into " + TABLE_NV + " values ('admin', 'admin', 'Đinh Quốc Đạt', 'nhoctengu2001@gmail.com', null) ";
+        sql = " insert into " + TABLE_NV + " values ('admin', 'admin', 'Nguyễn Mạnh Hoàng', 'nhoctengu2001@gmail.com', null) ";
         db.execSQL(sql);
 
         // bảng hãng nước hoa
