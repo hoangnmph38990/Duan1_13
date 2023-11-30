@@ -19,12 +19,12 @@ public class NhanVien_DAO {
     private SQLiteDatabase SQL;
     private Mydatabase db;
 
-    public NhanVien_DAO(Context context){
+    public NhanVien_DAO(Context context) {
         db = new Mydatabase(context);
         SQL = db.getWritableDatabase();
     }
 
-    public long insert(NhanVien nv){
+    public long insert(NhanVien nv) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NV_MA, nv.MaNV);
         values.put(COLUMN_NV_PASS, nv.Password);
@@ -34,7 +34,8 @@ public class NhanVien_DAO {
         return SQL.insertOrThrow(TABLE_NV, null, values);
 
     }
-    public int update(NhanVien nv ){
+
+    public int update(NhanVien nv) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NV_PASS, nv.Password);
         values.put(COLUMN_NV_HOTEN, nv.HoTen);
@@ -45,21 +46,23 @@ public class NhanVien_DAO {
                 new String[]{String.valueOf(nv.MaNV)});
     }
 
-    public int delete(String id){
+    public int delete(String id) {
         return SQL.delete(TABLE_NV,
-                COLUMN_NV_MA  + " = ? ",
+                COLUMN_NV_MA + " = ? ",
                 new String[]{String.valueOf(id)});
     }
 
-    public List<NhanVien> getAll(){
+    public List<NhanVien> getAll() {
         String sql = " SELECT * FROM " + TABLE_NV;
         return getData(sql);
     }
-    public NhanVien getID(String id){
+
+    public NhanVien getID(String id) {
         String sql = " SELECT * FROM " + TABLE_NV + " WHERE " + COLUMN_NV_MA + " = ? ";
         List<NhanVien> list = getData(sql, id);
         return list.get(0);
     }
+
     public NhanVien getByID(String _id) {
         NhanVien nhanVien = null;
         SQL = db.getReadableDatabase();
@@ -75,12 +78,13 @@ public class NhanVien_DAO {
         c.close();
         return nhanVien;
     }
-    public List<NhanVien> getData(String sql, String...selectionArgs) {
+
+    public List<NhanVien> getData(String sql, String... selectionArgs) {
         List<NhanVien> list = new ArrayList<>();
         Cursor cursor = SQL.rawQuery(sql, selectionArgs);
         cursor.moveToFirst();
         try {
-            while (cursor.isAfterLast() == false){
+            while (cursor.isAfterLast() == false) {
                 String id = cursor.getString(0);
                 String pass = cursor.getString(1);
                 String hoTen = cursor.getString(2);
@@ -90,10 +94,10 @@ public class NhanVien_DAO {
                 list.add(nhanVien);
                 cursor.moveToNext();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.e("Get Category error: ", e.getMessage());
-        }finally {
-            if (cursor != null && !cursor.isClosed()){
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
                 cursor.close();
             }
         }
@@ -113,7 +117,7 @@ public class NhanVien_DAO {
 
     //
 
-    public NhanVien fogotPass(String _id){
+    public NhanVien fogotPass(String _id) {
         NhanVien nhanVien = null;
         SQL = db.getReadableDatabase();
         Cursor c = SQL.rawQuery("select * from " + TABLE_NV + " WHERE " + COLUMN_NV_MA + " = ?", new String[]{String.valueOf(_id)});
@@ -127,6 +131,5 @@ public class NhanVien_DAO {
         }
         c.close();
         return nhanVien;
-
     }
 }

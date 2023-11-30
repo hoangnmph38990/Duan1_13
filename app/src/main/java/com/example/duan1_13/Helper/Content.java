@@ -40,5 +40,4 @@ public class Content {
     public static final String COLUMN_HDCT_SL = "SoLuong";
     public static final String COLUMN_HDCT_TIEN = "TongTien";
 
-
 }

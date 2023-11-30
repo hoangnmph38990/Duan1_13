@@ -5,7 +5,7 @@
     android:id="@+id/drawer_navigation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#a7adc7"
+    android:background="@drawable/nenip15"
     tools:context=".MainActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@drawable/nen_xanh_chinh" />
+        app:srcCompat="@drawable/nenip15" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/white"
+        android:background="#00E8E8E8"
         app:headerLayout="@layout/layout_navigation_header"
         app:menu="@menu/drawer_view" />
 </androidx.drawerlayout.widget.DrawerLayout>

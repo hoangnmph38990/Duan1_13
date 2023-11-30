@@ -2,23 +2,23 @@ package com.example.duan1_13.Model;
 
 public class Top {
 
-    private int Madt;
+    private int MaNH;
     private int soLuong;
 
     public Top() {
     }
 
-    public Top(int madt, int soLuong) {
-        Madt = madt;
+    public Top(int maNH, int soLuong) {
+        MaNH = maNH;
         this.soLuong = soLuong;
     }
 
-    public int getMadt() {
-        return Madt;
+    public int getMaNH() {
+        return MaNH;
     }
 
-    public void setMadt(int madt) {
-        Madt = madt;
+    public void setMaNH(int maNH) {
+        MaNH = maNH;
     }
 
     public int getSoLuong() {
