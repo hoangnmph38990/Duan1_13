@@ -61,7 +61,7 @@ public class NuocHoa_Adapter extends ArrayAdapter<NuocHoa> {
             Hang hnh = hD.getID(String.valueOf(nh.getMaH_NH()));
 
             tvGia.setText(String.format("%,.0f", nh.getGia()) + "");
-            tvSl.setText("số lượng: " + nh.getSoLuong());
+            tvSl.setText("SL: " + nh.getSoLuong());
 
             if (hnh != null) {
                 tvTen.setText(hnh.getTenH());

@@ -39,7 +39,7 @@ public class Hang_Spiner_Adapter extends ArrayAdapter<Hang> {
             if (h != null){
                 tv = v.findViewById(R.id.sp_h_tv);
 
-                tv.setText("Tên hãng: "+h.getTenH());
+                tv.setText("Tên Hãng: "+ h.getTenH());
             }
         }
 
@@ -58,7 +58,7 @@ public class Hang_Spiner_Adapter extends ArrayAdapter<Hang> {
             if (h != null){
                 tv = v.findViewById(R.id.sp_h_tv);
 
-                tv.setText("Tên hãng: "+h.getTenH());
+                tv.setText("Tên Nước Hoa: "+h.getTenH());
             }
         }
         return v;

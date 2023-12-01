@@ -21,6 +21,7 @@
         <Spinner
             android:id="@+id/hdct_diag_sp"
             android:layout_width="100dp"
+            android:textColor="@color/black"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
@@ -30,6 +31,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:ems="10"
+            android:textColor="@color/black"
             android:gravity="center"
             android:background="@drawable/boder"
             android:inputType="number"

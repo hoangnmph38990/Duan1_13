@@ -15,7 +15,7 @@
             android:id="@+id/action_qlnh"
             android:enabled="true"
             android:icon="@drawable/ic_nh"
-            android:title="Quản lý sản phảm" />
+            android:title="Quản lý sản phẩm" />
         <item
             android:id="@+id/action_qlNhanVien"
             android:enabled="true"

@@ -39,7 +39,7 @@ public class Nuochoa_Spiner_Adapter extends ArrayAdapter<NuocHoa> {
             if (nh != null){
                 tv = v.findViewById(R.id.sp_nh_tv);
 
-                tv.setText("Tên hãng: "+nh.getTenNH());
+                tv.setText("Tên Nước Hoa: "+nh.getTenNH());
             }
         }
 
@@ -58,7 +58,7 @@ public class Nuochoa_Spiner_Adapter extends ArrayAdapter<NuocHoa> {
             if (nh != null){
                 tv = v.findViewById(R.id.sp_nh_tv);
 
-                tv.setText("Tên hãng: "+nh.getTenNH());
+                tv.setText("Tên Nước Hoa: "+nh.getTenNH());
             }
         }
         return v;
