@@ -1,6 +1,5 @@
 package com.example.duan1_13.Fragment;
 
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -48,7 +47,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-
 public class NuocHoa_Fragment extends Fragment implements View.OnClickListener {
 
     private ListView lv;
@@ -56,17 +54,19 @@ public class NuocHoa_Fragment extends Fragment implements View.OnClickListener {
     private EditText edTen, edGia, edSl;
     private Spinner sp;
     private Button btSave, btReset;
+    Hang_Spiner_Adapter spiner_adapter;
     private ImageView iv;
     NuocHoa_DAO nhD;
     private ArrayList<NuocHoa> list;
     NuocHoa_Adapter nhA;
     NuocHoa nh;
     Dialog dialog;
+    Hang_DAO hD;
+    Hang hang;
     ArrayList<Hang> listH;
     int MaH, number, Ma_nh, TYPE = 0;
     String TenH;
 
-    //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -163,17 +163,16 @@ public class NuocHoa_Fragment extends Fragment implements View.OnClickListener {
         iv = dialog.findViewById(R.id.nh_diag_iv);
 
         listH = new ArrayList<Hang>();
-        Hang_DAO hD = new Hang_DAO(context);
+        hD = new Hang_DAO(getContext());
         listH = (ArrayList<Hang>) hD.getAll();
-        Hang_Spiner_Adapter hSpA = new Hang_Spiner_Adapter(context, listH);
-        sp.setAdapter(hSpA);
+        spiner_adapter = new Hang_Spiner_Adapter(context, listH);
+        sp.setAdapter(spiner_adapter);
 
 
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                MaH = listH.get(i).getMaH();
-                TenH = listH.get(i).getTenH();
+                Toast.makeText(context, "Chon : " + listH.get(i).getTenH(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

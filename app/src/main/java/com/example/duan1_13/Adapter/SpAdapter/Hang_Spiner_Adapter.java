@@ -21,7 +21,7 @@ public class Hang_Spiner_Adapter extends ArrayAdapter<Hang> {
     private ArrayList<Hang> list;
     private TextView tv;
 
-    public Hang_Spiner_Adapter(Context context, ArrayList<Hang> list){
+    public Hang_Spiner_Adapter(Context context, ArrayList<Hang> list) {
         super(context, 0, list);
         this.context = context;
         this.list = list;
@@ -30,16 +30,15 @@ public class Hang_Spiner_Adapter extends ArrayAdapter<Hang> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View v = convertView;
-        if (v == null){
-            LayoutInflater inf=(LayoutInflater)
+        if (v == null) {
+            LayoutInflater inf = (LayoutInflater)
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inf.inflate(R.layout.items_spinner_hang, null);
 
             final Hang h = list.get(position);
-            if (h != null){
+            if (h != null) {
                 tv = v.findViewById(R.id.sp_h_tv);
-
-                tv.setText("Tên Hãng: "+ h.getTenH());
+                tv.setText("Tên Hãng: " + h.getTenH());
             }
         }
 
@@ -49,16 +48,16 @@ public class Hang_Spiner_Adapter extends ArrayAdapter<Hang> {
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
-        if (v == null){
-            LayoutInflater inf=(LayoutInflater)
+        if (v == null) {
+            LayoutInflater inf = (LayoutInflater)
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inf.inflate(R.layout.items_spinner_hang, null);
 
             final Hang h = list.get(position);
-            if (h != null){
+            if (h != null) {
                 tv = v.findViewById(R.id.sp_h_tv);
 
-                tv.setText("Tên Nước Hoa: "+h.getTenH());
+                tv.setText("Tên Nước Hoa: " + h.getTenH());
             }
         }
         return v;

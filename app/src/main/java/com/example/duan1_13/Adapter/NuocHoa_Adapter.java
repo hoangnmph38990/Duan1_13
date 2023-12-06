@@ -63,8 +63,8 @@ public class NuocHoa_Adapter extends ArrayAdapter<NuocHoa> {
             tvGia.setText(String.format("%,.0f", nh.getGia()) + "");
             tvSl.setText("SL: " + nh.getSoLuong());
 
-            if (hnh != null) {
-                tvTen.setText(hnh.getTenH());
+            if (nh != null) {
+                tvTen.setText(nh.getTenNH());
             } else {
                 tvTen.setText("Nước Hoa");
             }

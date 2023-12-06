@@ -346,7 +346,6 @@ public class HoaDon_Fragment extends Fragment implements View.OnClickListener {
         capNhatLv_hdct(_type);
         NuocHoa_DAO nhD = new NuocHoa_DAO(_context);
 
-
         listNH = new ArrayList<NuocHoa>();
         listNH = (ArrayList<NuocHoa>) nhD.getAll();
         Nuochoa_Spiner_Adapter nhSpa = new Nuochoa_Spiner_Adapter(_context, listNH);
@@ -388,7 +387,9 @@ public class HoaDon_Fragment extends Fragment implements View.OnClickListener {
                     Log.d("HDCT: THEM", "onClick: " + MaNH);
                     int sl = Integer.parseInt(edSl.getText().toString());
                     hdct.setSoLuong(sl);
+
                     //Cập nhật lại số lượng cho kho
+
                     Kho_DAO khoDao = new Kho_DAO(_context);
                     sl = khoDao.getSLConLai(MaNH) - sl;
                     khoDao.updateSL(sl, MaNH);
@@ -403,7 +404,9 @@ public class HoaDon_Fragment extends Fragment implements View.OnClickListener {
                         if (hdctD.insert(hdct) > 0) {
                             Toast.makeText(_context, "Thêm thành công", Toast.LENGTH_SHORT).show();
                             edSl.setText("");
+
                             // Dùng để cập nhập lại tổng tiền hóa đơn
+
                             int a = hdctD.getTongTien(MaHD);
                             hd.setTienTong(Double.parseDouble(String.valueOf(a)));
                             hdD.updateH(Double.parseDouble(String.valueOf(a)), MaHD);
@@ -475,7 +478,7 @@ public class HoaDon_Fragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getContext(), "Không được để trống số lượng", Toast.LENGTH_SHORT).show();
             check = -1;
         } else if (sp.getSelectedItem() == null) {
-            Toast.makeText(getContext(), "Chưa có dữ liệu điện thoại", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Chưa có dữ liệu nước hoa", Toast.LENGTH_SHORT).show();
             check = -1;
         } else if (Integer.parseInt(edSl.getText().toString()) > kD.getSLConLai(MaNH)) {
             Toast.makeText(getContext(), "Số lượng trong kho không đủ", Toast.LENGTH_SHORT).show();

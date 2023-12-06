@@ -33,6 +33,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/bd_view"
             android:ems="10"
+            android:textColor="@color/black"
             android:hint="Tên hãng nước hoa: "
             android:inputType="textPersonName"
             android:padding="10dp"

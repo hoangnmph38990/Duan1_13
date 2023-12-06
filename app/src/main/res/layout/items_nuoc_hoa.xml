@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bd_item"
-    android:padding="3dp"
     android:layout_margin="10dp"
+    android:background="@drawable/bd_item"
     android:clickable="false"
     android:descendantFocusability="blocksDescendants"
     android:focusable="false"
-    android:focusableInTouchMode="false">
+    android:focusableInTouchMode="false"
+    android:padding="3dp">
 
     <ImageView
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
         android:id="@+id/items_nh_iv"
         android:layout_width="72dp"
         android:layout_height="110dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
@@ -29,35 +28,35 @@
         android:orientation="vertical">
 
         <TextView
-            android:clickable="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             android:id="@+id/items_nh_tv_ten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forman - Nwat"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="25dp" />
-
-        <TextView
-            android:id="@+id/items_nh_tv_hang"
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
+            android:text="Forman - Nwat"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/items_nh_tv_hang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Dior" />
-
-        <TextView
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
+            android:text="Dior" />
+
+        <TextView
             android:id="@+id/items_nh_tv_gia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:text="2,000,0000"
             android:textColor="@color/red"
             android:textSize="20dp" />
@@ -69,15 +68,15 @@
         android:orientation="vertical">
 
         <TextView
-            android:clickable="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
             android:id="@+id/items_nh_tv_sl"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:textColor="@color/black"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center"
-            android:text="sl: 6" />
+            android:text="sl: 6"
+            android:textColor="@color/black" />
 
 
     </LinearLayout>

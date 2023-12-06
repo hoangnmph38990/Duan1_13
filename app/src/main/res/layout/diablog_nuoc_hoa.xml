@@ -31,6 +31,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/bd_view"
             android:ems="10"
+            android:textColor="@color/black"
             android:fontFamily="@font/poppins"
             android:hint="Tên nước hoa"
             android:inputType="textPersonName"
@@ -48,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textColor="@color/black"
             android:background="@drawable/bd_view"
             android:ems="10"
             android:fontFamily="@font/poppins"
@@ -63,11 +65,13 @@
             android:layout_margin="5dp"
             android:background="@drawable/bd_view"
             android:ems="10"
+            android:textColor="@color/black"
             android:fontFamily="@font/poppins"
             android:hint="Nhập số lượng: "
             android:inputType="number"
             android:padding="10dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:autofillHints="" />
 
         <ImageView
             android:id="@+id/nh_diag_iv"

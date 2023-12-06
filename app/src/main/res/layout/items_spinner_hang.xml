@@ -8,10 +8,10 @@
         android:id="@+id/sp_h_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bd_item"
         android:fontFamily="@font/poppins"
         android:text="Tên Nước Hoa : "
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@drawable/bd_item"/>
+        android:textStyle="bold" />
 
 </LinearLayout>

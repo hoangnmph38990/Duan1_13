@@ -16,6 +16,7 @@ public class Mydatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // Bảng nhân viên
+
         String sql = "create table if not exists " + TABLE_NV +
                 "(" +
                 COLUMN_NV_MA + " text primary key ," +
@@ -40,6 +41,7 @@ public class Mydatabase extends SQLiteOpenHelper {
 
         db.execSQL(sql2);
 
+
         // Bảng nước hoa
 
         String sql3 = "create table if not exists " + TABLE_NH +
@@ -54,6 +56,8 @@ public class Mydatabase extends SQLiteOpenHelper {
                 " references "+TABLE_HANG+" ( "+COLUMN_H_MA+" ) " +
                 " ) ";
         db.execSQL(sql3);
+//        sql = " insert into "  + TABLE_NH + " values (1,'DIOR - NUDHS',30000,10,1, null ) ";
+//        db.execSQL(sql);
 
         // Bảng hóa đơn
 
